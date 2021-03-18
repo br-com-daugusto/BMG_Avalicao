@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<head th:replace="~{base :: head}"></head>
+
+</head>
+
+<head th:replace="~{base :: head}"></head>
+<body class="bg-gradient-primary">
+
+	<div class="container">
+
+
+		<div class="card o-hidden border-0 shadow-lg my-5">
+			<div class="card-body p-0">
+				<!-- Nested Row within Card Body -->
+				<div class="alert alert-success"
+					th:if="${!#strings.isEmpty(mensagem)}">
+					<span th:text="${mensagem}"></span>
+				</div>
+				<div class="alert alert-danger"
+					th:if="${!#strings.isEmpty(mensagemErro)}">
+					<span th:text="${mensagemErro}"></span>
+				</div>
+				<div class="row">
+					<div class="col-lg-5 d-none d-lg-block bg-register-image">
+                          <img src="../../images/faces-clipart/pic-3.png" alt="image" />
+				  
+
+					</div>
+					<div class="col-lg-7">
+						<div class="p-5">
+							<div class="text-center">
+								<h1 class="h4 text-gray-900 mb-4">Criar conta</h1>
+							</div>
+							<form th:action="@{/pages/novo}"
+								th:object="${requsicaoNovoLogin}" class="card-body"
+								method="post">
+								<div class="form-group">
+									<input th:field="*{nome}" th:errorclass="is-invalid"
+										class="form-control" placeholder="Nome" />
+									<div class="invalid-feedback" th:errors="*{nome}">Erros
+										do nome</div>
+								</div>
+
+								<div class="form-group">
+									<input th:field="*{sobreNome}" th:errorclass="is-invalid"
+										class="form-control" placeholder="sobreNome" />
+									<div class="invalid-feedback" th:errors="*{sobreNome}">
+										Erros do sobreNome</div>
+								</div>
+
+								<div class="form-group">
+									<input th:field="*{username}" th:errorclass="is-invalid"
+										class="form-control" placeholder="Email" />
+									<div class="invalid-feedback" th:errors="*{sobreNome}">
+										Erros do Email</div>
+								</div>
+								<div class="form-group">
+									<input th:field="*{password}" th:errorclass="is-invalid"
+										type="password" class="form-control" placeholder="Senha" />
+
+									<div class="invalid-feedback" th:errors="*{password}">
+										Erros da senha</div>
+
+
+								</div>
+								<div class="form-check">
+									<input th:field="*{tipo}" th:errorclass="is-invalid" 
+									class="form-check-input" type="checkbox" value=""
+										id="tipo"> <label class="form-check-label"
+										for="tipo"> Se chegou aqui atraves de uma senha selecione esta opcao </label>
+											<div class="invalid-feedback" th:errors="*{tipo}">Erros
+										da tipo</div>
+								</div>
+								</div>
+
+
+								<button class="btn btn-primary" type="submit">Cadastrar</button>
+								<hr>
+							</form>
+							<hr>
+							<div class="text-center">
+								<a class="small" href="forgot-password.html">Esqueceu a
+									senha?</a>
+							</div>
+							<div class="text-center">
+								<a class="small" th:href="@{/login}">Possui conta? Login!</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script src="js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>
